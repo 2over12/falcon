@@ -302,3 +302,26 @@ impl Loader for Elf {
         self.symbols()
     }
 }
+
+#[cfg(test)]
+mod test {
+    use crate::loader::Elf;
+    use crate::loader::Loader;
+    use std::path::Path;
+
+    #[test]
+    fn load_cyber_blogger() {
+        let elf = Elf::from_file(Path::new("./bins/cyber_blogger")).unwrap();
+        println!("0x{:X}", elf.program_entry());
+        for function in elf.program().unwrap().functions() {
+            for block in function.blocks() {
+                println!(
+                    "Block {} in Function {:x}",
+                    block.index(),
+                    function.address()
+                );
+                println!("{}", block);
+            }
+        }
+    }
+}
