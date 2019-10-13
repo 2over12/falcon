@@ -1,5 +1,6 @@
 #![recursion_limit = "128"]
 
+
 //! Falcon: A Binary Analysis Framework in Rust.
 //!
 //! Falcon is a framework in rust for implementing formal analyses over binary

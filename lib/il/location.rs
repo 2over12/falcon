@@ -454,6 +454,10 @@ impl ProgramLocation {
         &self.function_location
     }
 
+    pub fn function_index(&self) -> Option<usize> {
+        self.function_index
+    }
+
     /// If this `ProgramLocation` has a valid `Block` target, return the index
     /// of that `Block`.
     pub fn block_index(&self) -> Option<usize> {

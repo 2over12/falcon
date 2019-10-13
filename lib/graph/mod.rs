@@ -207,7 +207,7 @@ where
     /// Error if the edge already exists by indices.
     pub fn insert_edge(&mut self, edge: E) -> Result<()> {
         if self.edges.contains_key(&(edge.head(), edge.tail())) {
-            return Err("duplicate edge".into());
+            //    return Err("duplicate edge".into());
         }
 
         self.edges.insert((edge.head(), edge.tail()), edge.clone());
